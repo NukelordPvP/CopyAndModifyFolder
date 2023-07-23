@@ -1,7 +1,7 @@
 # CopyAndModifyFolder
 CopyAndModifyFolder is a Java utility program designed to streamline the process of copying and modifying files and folders from multiple source directories to their respective destination directories. This tool is particularly useful for managing client-side configurations and removing unnecessary files or folders in a Minecraft Forge modding environment. The program reads its configuration from a YAML file, allowing easy customization and automation of the copying and modification process.
 
-Features:
+Features
 Customizable Source and Destination Folders: The program allows you to specify multiple source folders, each with its own destination folder. You can set whether to run the program from the 'mods' folder, and adjust the level of the main directory in relation to the current directory.
 
 Use Custom Output Directory: You have the option to use a custom output directory for each source folder. If enabled, each source folder will have its own output directory specified in the configuration.
@@ -18,12 +18,12 @@ Logging: Detailed logging with a log file (CopyAndModifyFolder.log) keeps track 
 
 Gradle Support: This utility can be integrated into your Gradle project as a build task, making it easy to automate the copying and modification process as part of your development workflow.
 
-Usage:
+Usage
 Clone or download the repository.
 Customize the config-server-client-side-files.yaml file to suit your needs. Specify the source folders, destination folders, config list, folder list, and other options as required.
 Run the program by executing the main method in the CopyAndModifyFolder class.
 The program will copy the files and folders from the specified source folders to their respective destination folders, remove client-side config files, and delete specified folders. Log files will be generated to keep track of the process.
-Configuration:
+Configuration
 The config-server-client-side-files.yaml configuration file is structured with various options:
 
 MAIN_DIRECTORY_LEVEL: Set the level of the main directory in relation to the current directory.
@@ -34,7 +34,9 @@ SOURCE_FOLDERS: List of source folders with their respective custom output direc
 CONFIG_LIST: List of client-side config files to be removed from the copied folder.
 FOLDER_LIST: List of folders to be deleted from the copied folder.
 NUM_FOLDERS: (Deprecated) Set the number of folders to clone and paste.
-Note:
+Note: This program is designed for Minecraft Forge mod development but can be adapted for other purposes as well. Make sure to adjust the file paths and folder names in the configuration file according to your project's structure.
+
+Feel free to use this utility to enhance your modding workflow and automate the management of client-side configurations! If you encounter any issues or have suggestions for improvements, please feel free to create an issue or contribute to the project. Happy modding!
 This program is designed for Minecraft Forge mod development but can be adapted for other purposes as well.
 Make sure to adjust the file paths and folder names in the configuration file according to your project's structure.
 Feel free to use this utility to enhance your modding workflow and automate the management of client-side configurations! If you encounter any issues or have suggestions for improvements, please feel free to create an issue or contribute to the project. Happy modding!
