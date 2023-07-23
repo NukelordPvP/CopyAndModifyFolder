@@ -1,5 +1,4 @@
 # CopyAndModifyFolder
-CopyAndModifyFolder
 CopyAndModifyFolder is a Java utility program designed to streamline the process of copying and modifying files and folders from multiple source directories to their respective destination directories. This tool is particularly useful for managing client-side configurations and removing unnecessary files or folders in a Minecraft Forge modding environment. The program reads its configuration from a YAML file, allowing easy customization and automation of the copying and modification process.
 
 Features:
