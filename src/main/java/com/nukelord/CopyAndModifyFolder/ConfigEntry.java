@@ -1,4 +1,4 @@
-package main.java.CopyAndModifyFolder;
+package com.nukelord.CopyAndModifyFolder;
 
 import java.util.ArrayList;
 import java.util.List;

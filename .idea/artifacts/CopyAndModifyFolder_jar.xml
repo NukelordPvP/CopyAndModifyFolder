@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="CopyAndModifyFolder:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/CopyAndModifyFolder_jar</output-path>
-    <root id="archive" name="CopyAndModifyFolder.jar">
-      <element id="module-output" name="CopyAndModifyFolder" />
-    </root>
-  </artifact>
-</component>
