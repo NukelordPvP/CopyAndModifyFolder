@@ -1,42 +1,44 @@
 MAIN_DIRECTORY_LEVEL:0
 RUN_FROM_MODS:false
-GLOBAL_OVERRIDE_CUSTOM_OUTPUT_DIR:""Blood-N-Wine-2-Server""
-USE_CUSTOM_OUTPUT_DIR:false
+GLOBAL_OVERRIDE_CUSTOM_OUTPUT_DIR:"Blood-N-Wine-2-Server"
+USE_CUSTOM_OUTPUT_DIR:true
 
 Processing entry:
-Source folder: ./config
-Destination folder: ./config-server
+Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\config
+Destination folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config
 CONFIG_LIST: [- "abnormals_core-client.toml", - "abnormals_core-common.toml", - "aiimprovements-common.toml"]
 FOLDER_LIST: [- "alexsmobs", - "other_mod_folder"]
-Copying folder from: ./config to ./config-server
-Source folder is empty or does not exist: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\source_folder\.\config
-Folder copy complete. Source folder: ./config, Destination folder: ./config-server
-Removing config files: [- "abnormals_core-client.toml", - "abnormals_core-common.toml", - "aiimprovements-common.toml"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\config-server
-Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\config-server\- "abnormals_core-client.toml"
-Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\config-server\- "abnormals_core-common.toml"
-Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\config-server\- "aiimprovements-common.toml"
+Copying folder from: ./config to Blood-N-Wine-2-Server./config
+Copying folder from: ./config to Blood-N-Wine-2-Server./config
+Folder copy complete. Source folder: ./config, Destination folder: Blood-N-Wine-2-Server./config
+Copying folder from: ./config to Blood-N-Wine-2-Server./config
+Folder copy complete. Source folder: ./config, Destination folder: Blood-N-Wine-2-Server./config
+Folder copy complete. Source folder: ./config, Destination folder: Blood-N-Wine-2-Server./config
+Removing config files: [- "abnormals_core-client.toml", - "abnormals_core-common.toml", - "aiimprovements-common.toml"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config\- "abnormals_core-client.toml"
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config\- "abnormals_core-common.toml"
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config\- "aiimprovements-common.toml"
 Config file removal complete.
-Deleting folders: [- "alexsmobs", - "other_mod_folder"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\config-server
-Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\config-server\- "alexsmobs"
-Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\config-server\- "other_mod_folder"
+Deleting folders: [- "alexsmobs", - "other_mod_folder"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config\- "alexsmobs"
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config\- "other_mod_folder"
 Folder deletion complete.
 Processing complete for this entry.
 Processing entry:
-Source folder: ./mods
-Destination folder: ./mods-server
+Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\mods
+Destination folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods
 CONFIG_LIST: [- "abnormals_core-client.toml", - "abnormals_core-common.toml", - "aiimprovements-common.toml"]
 FOLDER_LIST: [- "alexsmobs", - "other_mod_folder"]
-Copying folder from: ./mods to ./mods-server
-Source folder is empty or does not exist: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\source_folder\.\mods
-Folder copy complete. Source folder: ./mods, Destination folder: ./mods-server
-Removing config files: [- "abnormals_core-client.toml", - "abnormals_core-common.toml", - "aiimprovements-common.toml"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\mods-server
-Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\mods-server\- "abnormals_core-client.toml"
-Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\mods-server\- "abnormals_core-common.toml"
-Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\mods-server\- "aiimprovements-common.toml"
+Copying folder from: ./mods to Blood-N-Wine-2-Server./mods
+Folder copy complete. Source folder: ./mods, Destination folder: Blood-N-Wine-2-Server./mods
+Removing config files: [- "abnormals_core-client.toml", - "abnormals_core-common.toml", - "aiimprovements-common.toml"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods\- "abnormals_core-client.toml"
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods\- "abnormals_core-common.toml"
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods\- "aiimprovements-common.toml"
 Config file removal complete.
-Deleting folders: [- "alexsmobs", - "other_mod_folder"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\mods-server
-Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\mods-server\- "alexsmobs"
-Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\destination_folder\.\mods-server\- "other_mod_folder"
+Deleting folders: [- "alexsmobs", - "other_mod_folder"] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods\- "alexsmobs"
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods\- "other_mod_folder"
 Folder deletion complete.
 Processing complete for this entry.
 

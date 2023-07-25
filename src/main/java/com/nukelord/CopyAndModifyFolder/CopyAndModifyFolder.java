@@ -21,12 +21,10 @@ public class CopyAndModifyFolder {
             int mainDirectoryLevel = mainConfigEntry.getMainDirectoryLevel();
 
             // Set the source and destination folders based on the main directory level
-            File sourceFolder = new File(SOURCE_FOLDER);
-            File destinationFolder = new File(DESTINATION_FOLDER);
+            File current_directory = new File( ".");
 
             for (int i = 0; i < mainDirectoryLevel; i++) {
-                sourceFolder = sourceFolder.getParentFile();
-                destinationFolder = destinationFolder.getParentFile();
+                current_directory = current_directory.getParentFile();
             }
 
             // Create log file
@@ -43,7 +41,7 @@ public class CopyAndModifyFolder {
 
                 for (SourceFolderConfig folderConfig : sourceFolders) {
                     String inputFolder = folderConfig.getSource();
-                    String outputFolder = folderConfig.getCustomOutputDir();
+                    String outputFolder =(mainConfigEntry.isUseCustomOutputDir() ? mainConfigEntry.getGlobalOverrideCustomOutputDir() :"")+ folderConfig.getCustomOutputDir();
 
                     if (inputFolder == null || outputFolder == null) {
                         logWriter.println("Skipping entry: Incomplete configuration. Both source and destination folders must be specified.");
@@ -52,13 +50,13 @@ public class CopyAndModifyFolder {
                         continue;
                     }
 
-                    File sourceEntryFolder = new File(sourceFolder, inputFolder);
-                    File destinationEntryFolder = new File(destinationFolder, outputFolder);
+                    File sourceEntryFolder = new File(current_directory, inputFolder);
+                    File destinationEntryFolder = new File(current_directory, outputFolder);
 
                     // Log specific entry configurations
                     logWriter.println("Processing entry:");
-                    logWriter.println("Source folder: " + inputFolder);
-                    logWriter.println("Destination folder: " + outputFolder);
+                    logWriter.println("Source folder: " + sourceEntryFolder.getAbsolutePath());
+                    logWriter.println("Destination folder: " + destinationEntryFolder.getAbsolutePath());
                     logWriter.println("CONFIG_LIST: " + mainConfigEntry.getConfigList());
                     logWriter.println("FOLDER_LIST: " + mainConfigEntry.getFolderList());
 

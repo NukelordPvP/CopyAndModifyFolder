@@ -14,20 +14,20 @@ RUN_FROM_MODS:false
 # Set the destination folder for copied files and modified folders.
 # If USE_CUSTOM_OUTPUT_DIR is set to false, this option will be used as the destination folder. // this is now inverted
 # If USE_CUSTOM_OUTPUT_DIR is set to true, the default destination folder will be 'config-Server'.
-GLOBAL_OVERRIDE_CUSTOM_OUTPUT_DIR:"Blood-N-Wine-2-Server"
+GLOBAL_OVERRIDE_CUSTOM_OUTPUT_DIR:Blood-N-Wine-2-Server
 
 # Set whether to use a custom output directory for each source folder.
 # If set to true, each source folder will have its own output directory specified in CUSTOM_OUTPUT_DIR.
 # If set to false (default), all source folders will use the destination folder specified above.
-USE_CUSTOM_OUTPUT_DIR:true
+USE_CUSTOM_OUTPUT_DIR:false
 
 # Custom output directory for each source folder (if USE_CUSTOM_OUTPUT_DIR is set to true).
 SOURCE_FOLDERS:
   - SOURCE=./config
-    CUSTOM_OUTPUT_DIR=./config-server
+    CUSTOM_OUTPUT_DIR=./config
 
   - SOURCE=./mods
-    CUSTOM_OUTPUT_DIR=./mods-server
+    CUSTOM_OUTPUT_DIR=./mods
 
 # List of client-side config files to be removed from the copied folder.
 # Files should be specified relative to the destination folder.
