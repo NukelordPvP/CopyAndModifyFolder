@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
 }
 
 group = 'com.nukelord.CopyAndModifyFolder'
@@ -26,4 +27,9 @@ jar {
                 'Main-Class': 'com.nukelord.CopyAndModifyFolder.CopyAndModifyFolder'
         )
     }
+}
+
+shadowJar {
+    // Optionally, you can specify a custom name for the output JAR
+    archiveFileName = "CopyAndModifyFolder.jar"
 }
