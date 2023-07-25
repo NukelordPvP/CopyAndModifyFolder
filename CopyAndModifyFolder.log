@@ -23,6 +23,8 @@ Deleting folders: [- "alexsmobs", - "other_mod_folder"] from C:\Users\NukelordBr
 Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config\- "alexsmobs"
 Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config\- "other_mod_folder"
 Folder deletion complete.
+Checking for deletions in C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\config
+Deletion check complete.
 Processing complete for this entry.
 Processing entry:
 Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\mods
@@ -40,6 +42,8 @@ Deleting folders: [- "alexsmobs", - "other_mod_folder"] from C:\Users\NukelordBr
 Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods\- "alexsmobs"
 Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods\- "other_mod_folder"
 Folder deletion complete.
+Checking for deletions in C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Server.\mods
+Deletion check complete.
 Processing complete for this entry.
 
 Task completed successfully.

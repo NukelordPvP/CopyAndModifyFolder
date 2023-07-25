@@ -69,6 +69,9 @@ public class CopyAndModifyFolder {
                     // Delete specified folders from the copied folder
                     deleteFolders(mainConfigEntry.getFolderList(), destinationEntryFolder, logWriter);
 
+                    // Check for deletions in the destination folder
+                    checkForDeletions(sourceEntryFolder, destinationEntryFolder, logWriter);
+
                     logWriter.println("Processing complete for this entry.");
                 }
 
@@ -80,9 +83,37 @@ public class CopyAndModifyFolder {
             System.out.println("Config entry not found or config file is not valid.");
         }
     }
+    private static void checkForDeletions(File source, File destination, PrintWriter logWriter) {
+        logWriter.println("Checking for deletions in " + destination.getAbsolutePath());
 
+        File[] destinationFiles = destination.listFiles();
+        if (destinationFiles != null) {
+            for (File destinationFile : destinationFiles) {
+                String relativePath = getRelativePath(destinationFile, destination);
 
+                File sourceFile = new File(source, relativePath);
+                if (!sourceFile.exists()) {
+                    if (destinationFile.isDirectory()) {
+                        deleteFolder(destinationFile, logWriter);
+                    } else {
+                        if (destinationFile.delete()) {
+                            logWriter.println("Deleted: " + destinationFile.getAbsolutePath());
+                        } else {
+                            logWriter.println("Failed to delete: " + destinationFile.getAbsolutePath());
+                        }
+                    }
+                }
+            }
+        }
 
+        logWriter.println("Deletion check complete.");
+    }
+    private static String getRelativePath(File file, File baseDir) {
+        // Get the relative path of the file with respect to the base directory
+        Path filePath = file.toPath();
+        Path basePath = baseDir.toPath();
+        return basePath.relativize(filePath).toString();
+    }
     private static ConfigEntry readConfigFile(String configFilePath) {
         try (Scanner scanner = new Scanner(new File(configFilePath))) {
             List<SourceFolderConfig> sourceFolders = new ArrayList<>();
