@@ -75,6 +75,32 @@ public class CopyAndModifyFolder {
                     logWriter.println("Processing complete for this entry.");
                 }
 
+
+
+                for (SourceFilesConfig fileConfig : mainConfigEntry.getSourceFiles()) {
+                    String inputFolder = fileConfig.getSource();
+                    String outputFolder =(mainConfigEntry.isUseCustomOutputDir() ? mainConfigEntry.getGlobalOverrideCustomOutputDir() :"")+ fileConfig.getCustomOutputDir();
+
+                    if (inputFolder == null || outputFolder == null) {
+                        logWriter.println("Skipping entry: Incomplete configuration. Both source and destination files must be specified.");
+                        logWriter.println("Source file: " + (inputFolder != null ? inputFolder : "Not set"));
+                        logWriter.println("Destination file: " + (outputFolder != null ? outputFolder : "Not set"));
+                        continue;
+                    }
+//sec before u change im gonna test adding \. larp lol so ./ is snyt now it needs to do this sec
+                    File sourceEntryFolder = new File(current_directory, inputFolder);
+                    File destinationEntryFolder = new File(current_directory, outputFolder);
+
+                    // Log specific entry configurations
+                    logWriter.println("Processing entry:");
+                    logWriter.println("Source file: " + sourceEntryFolder.getAbsolutePath());
+                    logWriter.println("Destination file: " + destinationEntryFolder.getAbsolutePath());
+
+                    // Copy the source file to the destination file
+                    copyFile(sourceEntryFolder, destinationEntryFolder, logWriter, inputFolder, outputFolder);
+                    logWriter.println("Processing complete for this entry.");
+                }
+
                 logWriter.println("\nTask completed successfully.");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -117,40 +143,51 @@ public class CopyAndModifyFolder {
     private static ConfigEntry readConfigFile(String configFilePath) {
         try (Scanner scanner = new Scanner(new File(configFilePath))) {
             List<SourceFolderConfig> sourceFolders = new ArrayList<>();
+            List<SourceFilesConfig> sourceFiles = new ArrayList<>();
             List<String> configList = new ArrayList<>();
             List<String> folderList = new ArrayList<>();
             int mainDirectoryLevel = 0;
             boolean runFromMods = false;
             String globalOverrideCustomOutputDir = null;
             boolean useCustomOutputDir = false;
+            boolean isSourceFiles = false;
             boolean isSourceFolders = false;
             boolean isConfigList = false;
             boolean isFolderList = false;
-//WAIT so THATS how u see variable info KEK ive been looking for that shit no wonder i couldnt do java LOL
+
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
                 if (line.isEmpty() || line.startsWith("#")) {
                     // Skip empty lines and comments
                     continue;
                 }
-// ree also the .txt to use isnt in classes it is reading form main dir of the project. src or project PROJECt cuz bomb kek
+
                 if (line.startsWith("SOURCE_FOLDERS:")) {
                     isSourceFolders = true;
                     isConfigList = false;
                     isFolderList = false;
+                    isSourceFiles = false;
+                } else if (line.startsWith("SOURCE_FILES:")) {
+                    isSourceFolders = false;
+                    isConfigList = false;
+                    isFolderList = false;
+                    isSourceFiles = true;
                 } else if (line.startsWith("CONFIG_LIST:")) {
                     isSourceFolders = false;
                     isConfigList = true;
                     isFolderList = false;
+                    isSourceFiles = false;
                 } else if (line.startsWith("FOLDER_LIST:")) {
                     isSourceFolders = false;
                     isConfigList = false;
                     isFolderList = true;
-                } else {
-                    if (isSourceFolders) {
+                    isSourceFiles = false;
+                }
+                 else {
+                    if (isSourceFolders || isSourceFiles) {
                         String source = "";
                         String customOutputDir = "";
-                        while(scanner.hasNextLine()) {
+                        while (scanner.hasNextLine()) {
                             String[] parts = line.split("=", 2);
                             if (parts.length == 2) {
                                 if (parts[0].startsWith("-")) {
@@ -162,10 +199,13 @@ public class CopyAndModifyFolder {
                                 break;
                             }
                         }
-                        if(source.isEmpty() && customOutputDir.isEmpty()){
+                        if (source.isEmpty() && customOutputDir.isEmpty()) {
                             System.out.println("Skipping this because empty");
                         }
-                        sourceFolders.add(new SourceFolderConfig(source, customOutputDir));
+                        if (isSourceFiles)
+                            sourceFiles.add(new SourceFilesConfig(source, customOutputDir));
+                        else
+                            sourceFolders.add(new SourceFolderConfig(source, customOutputDir));
                     } else if (isConfigList) {
                         configList.add(line);
                     } else if (isFolderList) {
@@ -192,7 +232,7 @@ public class CopyAndModifyFolder {
             }
 
             return new ConfigEntry(mainDirectoryLevel, runFromMods, globalOverrideCustomOutputDir,
-                    useCustomOutputDir, sourceFolders, configList, folderList);
+                    useCustomOutputDir, sourceFolders, sourceFiles, configList, folderList);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -217,6 +257,28 @@ public class CopyAndModifyFolder {
                 } else {
                     Files.copy(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 }
+            }
+        } else {
+            logWriter.println("Source folder is empty or does not exist: " + source.getAbsolutePath());
+        }
+
+        logWriter.println("Folder copy complete. Source folder: " + inputFolder + ", Destination folder: " + outputFolder);
+    }
+
+
+
+    private static void copyFile(File source, File destination, PrintWriter logWriter, String inputFolder, String outputFolder) throws IOException {
+        logWriter.println("Copying file from: " + inputFolder + " to " + outputFolder);
+        File parentDir = destination.getParentFile();
+        if (!parentDir.exists()) {
+            Files.createDirectories(destination.toPath());
+        }
+        if (source.exists()) {
+            try {
+                Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }catch (Exception e){
+                logWriter.println("Error while copying file. "+e.getMessage());
+                e.printStackTrace();
             }
         } else {
             logWriter.println("Source folder is empty or does not exist: " + source.getAbsolutePath());
@@ -281,7 +343,23 @@ public class CopyAndModifyFolder {
             logWriter.println("Failed to delete folder: " + folder.getAbsolutePath());
         }
     }
+    private static class SourceFilesConfig {
+        private final String source;
+        private final String customOutputDir;
 
+        public SourceFilesConfig(String source, String customOutputDir) {
+            this.source = source;
+            this.customOutputDir = customOutputDir;
+        }
+
+        public String getSource() {
+            return source;
+        }
+
+        public String getCustomOutputDir() {
+            return customOutputDir;
+        }
+    }
     private static class SourceFolderConfig {
         private final String source;
         private final String customOutputDir;
@@ -306,17 +384,19 @@ public class CopyAndModifyFolder {
         private final String globalOverrideCustomOutputDir;
         private final boolean useCustomOutputDir;
         private final List<SourceFolderConfig> sourceFolders;
+        private final List<SourceFilesConfig> sourceFiles;
         private final List<String> configList;
         private final List<String> folderList;
 
         public ConfigEntry(int mainDirectoryLevel, boolean runFromMods, String globalOverrideCustomOutputDir,
-                           boolean useCustomOutputDir, List<SourceFolderConfig> sourceFolders, List<String> configList,
+                           boolean useCustomOutputDir, List<SourceFolderConfig> sourceFolders,  List<SourceFilesConfig> sourceFiles, List<String> configList,
                            List<String> folderList) {
             this.mainDirectoryLevel = mainDirectoryLevel;
             this.runFromMods = runFromMods;
             this.globalOverrideCustomOutputDir = globalOverrideCustomOutputDir;
             this.useCustomOutputDir = !useCustomOutputDir; // Inverting the value here
-            this.sourceFolders = sourceFolders; // bomb. source folders is empty also this is way easier to understand cuz in redstone i can see the shit stored in each variable i make kek like this. yeah this is why debugger is invented kek
+            this.sourceFolders = sourceFolders;
+            this.sourceFiles = sourceFiles;
             this.configList = configList;
             this.folderList = folderList;
         }
@@ -324,7 +404,7 @@ public class CopyAndModifyFolder {
         public int getMainDirectoryLevel() {
             return mainDirectoryLevel;
         }// no bruh k then ill send u link in discord and use on ur pc // i k there just talk to the jew if u get stuck kek jew coded so ask jew wtf this bomb is
-//k u can start also can u alt tab to edge see if u can talk to jewgpt  basically the code despite me adding more logging even logging nulls and even like shit that isnt used it wont show shit in the .log and also the main directory for the program in iDE is CopyAndModifyFolder (not in the class folder ignore that CopyAndModifyFolder Folder)
+        //k u can start also can u alt tab to edge see if u can talk to jewgpt  basically the code despite me adding more logging even logging nulls and even like shit that isnt used it wont show shit in the .log and also the main directory for the program in iDE is CopyAndModifyFolder (not in the class folder ignore that CopyAndModifyFolder Folder)
         public boolean isRunFromMods() {
             return runFromMods;
         }
@@ -339,6 +419,10 @@ public class CopyAndModifyFolder {
 
         public List<SourceFolderConfig> getSourceFolders() {
             return sourceFolders;
+        }
+
+        public List<SourceFilesConfig> getSourceFiles() {
+            return sourceFiles;
         }
 
         public List<String> getConfigList() {
