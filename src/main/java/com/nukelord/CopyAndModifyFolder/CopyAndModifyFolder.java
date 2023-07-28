@@ -11,12 +11,17 @@ public class CopyAndModifyFolder {
     private static final String CONFIG_EXTENSION = ".txt";
 
     public static void main(String[] args) {
+        // Determine the configuration file name based on the program execution type
         String configFileName;
+        String logFileName;
+
         if (isRunningAsCompiledJar()) {
             String jarFileName = getJarFileName();
             configFileName = jarFileName.replace(".jar", CONFIG_EXTENSION);
+            logFileName = jarFileName.replace(".jar", LOG_EXTENSION);
         } else {
             configFileName = CopyAndModifyFolder.class.getSimpleName() + CONFIG_EXTENSION;
+            logFileName = CopyAndModifyFolder.class.getSimpleName() + LOG_EXTENSION;
         }
 
         // Use the current working directory to locate the configuration file
@@ -34,7 +39,7 @@ public class CopyAndModifyFolder {
                     .getName();
 
             // Generate the log file name
-            String logFileName = jarFileName.replace(".jar", LOG_EXTENSION);
+            //String logFileName = jarFileName.replace(".jar", LOG_EXTENSION);
 
             // Get the main directory level (root folder from where the program should run)
             int mainDirectoryLevel = mainConfigEntry.getMainDirectoryLevel();
@@ -46,7 +51,7 @@ public class CopyAndModifyFolder {
                 current_directory = current_directory.getParentFile();
             }
 
-            // Create log file
+            // Create log file using the determined log file name
             try (PrintWriter logWriter = new PrintWriter(new FileWriter(logFileName))) {
                 List<SourceFolderConfig> sourceFolders = mainConfigEntry.getSourceFolders();
 

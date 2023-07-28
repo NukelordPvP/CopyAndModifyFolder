@@ -1,0 +1,252 @@
+MAIN_DIRECTORY_LEVEL:0
+RUN_FROM_MODS:false
+GLOBAL_OVERRIDE_CUSTOM_OUTPUT_DIR:"Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export"
+USE_CUSTOM_OUTPUT_DIR:true
+
+Processing entry:
+Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\config
+Destination folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config
+CONFIG_LIST: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar]
+FOLDER_LIST: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica]
+Copying folder from: ./config to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./config
+Copying folder from: ./config to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./config
+Folder copy complete. Source folder: ./config, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./config
+Copying folder from: ./config to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./config
+Folder copy complete. Source folder: ./config, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./config
+Folder copy complete. Source folder: ./config, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./config
+Removing config files: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\null.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\null2.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\7OOF.zip
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\aas-1.16.4-1.1.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\betterfoliage-1.2.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\better-loading-screen-1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\BetterTitleScreen-1.16.4-1.10.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\camoucreeper-2.0.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\difficultylock_1.16.5-1.3.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\DontClearChatHistory-1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\dynamiclightsreforged-mc1.16.5_v1.0.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\entityculling-forge-mc1.16.5-1.5.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\farsight-1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\LegendaryTooltips-1.16.5-1.3.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\magnesium_extras-mc1.16.5_v1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\notenoughanimations-1.2.4.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\oculus-1.4.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\physics-mod-pro-v36b-forge-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\ReAuth-1.16-Forge-4.0.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\recast_1.16.5-1.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\rubidium-0.2.12.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\seamless_loading_screen-1.16.5-1.1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\TRansliterationLib-1.0.4.jar
+Config file removal complete.
+Deleting folders: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\MusicTriggers
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\fancymenu
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\better_loading_screen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\drippyloadingscreen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config\litematica
+Folder deletion complete.
+Checking for deletions in C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\config
+Deletion check complete.
+Processing complete for this entry.
+Processing entry:
+Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\defaultconfigs
+Destination folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs
+CONFIG_LIST: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar]
+FOLDER_LIST: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica]
+Copying folder from: ./defaultconfigs to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./defaultconfigs
+Source folder is empty or does not exist: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\defaultconfigs
+Folder copy complete. Source folder: ./defaultconfigs, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./defaultconfigs
+Removing config files: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\null.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\null2.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\7OOF.zip
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\aas-1.16.4-1.1.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\betterfoliage-1.2.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\better-loading-screen-1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\BetterTitleScreen-1.16.4-1.10.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\camoucreeper-2.0.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\difficultylock_1.16.5-1.3.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\DontClearChatHistory-1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\dynamiclightsreforged-mc1.16.5_v1.0.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\entityculling-forge-mc1.16.5-1.5.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\farsight-1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\LegendaryTooltips-1.16.5-1.3.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\magnesium_extras-mc1.16.5_v1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\notenoughanimations-1.2.4.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\oculus-1.4.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\physics-mod-pro-v36b-forge-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\ReAuth-1.16-Forge-4.0.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\recast_1.16.5-1.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\rubidium-0.2.12.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\seamless_loading_screen-1.16.5-1.1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\TRansliterationLib-1.0.4.jar
+Config file removal complete.
+Deleting folders: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\MusicTriggers
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\fancymenu
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\better_loading_screen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\drippyloadingscreen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs\litematica
+Folder deletion complete.
+Checking for deletions in C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\defaultconfigs
+Deletion check complete.
+Processing complete for this entry.
+Processing entry:
+Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\mods
+Destination folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods
+CONFIG_LIST: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar]
+FOLDER_LIST: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica]
+Copying folder from: ./mods to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./mods
+Folder copy complete. Source folder: ./mods, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./mods
+Removing config files: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\null.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\null2.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\7OOF.zip
+Deleted: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\aas-1.16.4-1.1.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\betterfoliage-1.2.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\better-loading-screen-1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\BetterTitleScreen-1.16.4-1.10.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\camoucreeper-2.0.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\difficultylock_1.16.5-1.3.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\DontClearChatHistory-1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\dynamiclightsreforged-mc1.16.5_v1.0.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\entityculling-forge-mc1.16.5-1.5.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\farsight-1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\LegendaryTooltips-1.16.5-1.3.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\magnesium_extras-mc1.16.5_v1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\notenoughanimations-1.2.4.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\oculus-1.4.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\physics-mod-pro-v36b-forge-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\ReAuth-1.16-Forge-4.0.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\recast_1.16.5-1.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\rubidium-0.2.12.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\seamless_loading_screen-1.16.5-1.1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\TRansliterationLib-1.0.4.jar
+Config file removal complete.
+Deleting folders: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\MusicTriggers
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\fancymenu
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\better_loading_screen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\drippyloadingscreen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods\litematica
+Folder deletion complete.
+Checking for deletions in C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\mods
+Deletion check complete.
+Processing complete for this entry.
+Processing entry:
+Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\openloader
+Destination folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader
+CONFIG_LIST: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar]
+FOLDER_LIST: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica]
+Copying folder from: ./openloader to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./openloader
+Source folder is empty or does not exist: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\openloader
+Folder copy complete. Source folder: ./openloader, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./openloader
+Removing config files: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\null.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\null2.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\7OOF.zip
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\aas-1.16.4-1.1.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\betterfoliage-1.2.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\better-loading-screen-1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\BetterTitleScreen-1.16.4-1.10.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\camoucreeper-2.0.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\difficultylock_1.16.5-1.3.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\DontClearChatHistory-1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\dynamiclightsreforged-mc1.16.5_v1.0.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\entityculling-forge-mc1.16.5-1.5.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\farsight-1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\LegendaryTooltips-1.16.5-1.3.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\magnesium_extras-mc1.16.5_v1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\notenoughanimations-1.2.4.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\oculus-1.4.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\physics-mod-pro-v36b-forge-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\ReAuth-1.16-Forge-4.0.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\recast_1.16.5-1.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\rubidium-0.2.12.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\seamless_loading_screen-1.16.5-1.1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\TRansliterationLib-1.0.4.jar
+Config file removal complete.
+Deleting folders: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\MusicTriggers
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\fancymenu
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\better_loading_screen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\drippyloadingscreen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader\litematica
+Folder deletion complete.
+Checking for deletions in C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\openloader
+Deletion check complete.
+Processing complete for this entry.
+Processing entry:
+Source folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\scripts
+Destination folder: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts
+CONFIG_LIST: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar]
+FOLDER_LIST: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica]
+Copying folder from: ./scripts to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./scripts
+Source folder is empty or does not exist: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\.\scripts
+Folder copy complete. Source folder: ./scripts, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export./scripts
+Removing config files: [null.toml, null2.toml, 7OOF.zip, aas-1.16.4-1.1.0.jar, BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar, betterfoliage-1.2.0.jar, better-loading-screen-1.4.0.jar, BetterTitleScreen-1.16.4-1.10.2.jar, camoucreeper-2.0.0.jar, difficultylock_1.16.5-1.3.jar, DontClearChatHistory-1.jar, dynamiclightsreforged-mc1.16.5_v1.0.1.jar, entityculling-forge-mc1.16.5-1.5.2.jar, fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar, farsight-1.7.jar, LegendaryTooltips-1.16.5-1.3.1.jar, magnesium_extras-mc1.16.5_v1.4.0.jar, notenoughanimations-1.2.4.jar, oculus-1.4.5.jar, physics-mod-pro-v36b-forge-1.16.5.jar, ReAuth-1.16-Forge-4.0.7.jar, recast_1.16.5-1.5.jar, rubidium-0.2.12.jar, seamless_loading_screen-1.16.5-1.1.7.jar, TRansliterationLib-1.0.4.jar] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\null.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\null2.toml
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\7OOF.zip
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\aas-1.16.4-1.1.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\BetterAnimationsCollection-v1.2.4-1.16.5-Forge.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\betterfoliage-1.2.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\better-loading-screen-1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\BetterTitleScreen-1.16.4-1.10.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\camoucreeper-2.0.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\difficultylock_1.16.5-1.3.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\DontClearChatHistory-1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\dynamiclightsreforged-mc1.16.5_v1.0.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\entityculling-forge-mc1.16.5-1.5.2.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\fancymenu_forge_2.14.3_MC_1.16.2-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\farsight-1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\LegendaryTooltips-1.16.5-1.3.1.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\magnesium_extras-mc1.16.5_v1.4.0.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\notenoughanimations-1.2.4.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\oculus-1.4.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\physics-mod-pro-v36b-forge-1.16.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\ReAuth-1.16-Forge-4.0.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\recast_1.16.5-1.5.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\rubidium-0.2.12.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\seamless_loading_screen-1.16.5-1.1.7.jar
+Config file not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\TRansliterationLib-1.0.4.jar
+Config file removal complete.
+Deleting folders: [MusicTriggers, fancymenu, better_loading_screen, drippyloadingscreen, litematica] from C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\MusicTriggers
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\fancymenu
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\better_loading_screen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\drippyloadingscreen
+Folder not found: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts\litematica
+Folder deletion complete.
+Checking for deletions in C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export.\scripts
+Deletion check complete.
+Processing complete for this entry.
+Processing entry:
+Source file: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\!_bnw2-version-2.1
+Destination file: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export\!_bnw2-version-2.1
+Copying file from: /!_bnw2-version-2.1 to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/!_bnw2-version-2.1
+Folder copy complete. Source folder: /!_bnw2-version-2.1, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/!_bnw2-version-2.1
+Processing complete for this entry.
+Processing entry:
+Source file: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\!_bnw2-forge-1.16.5-36.2.35
+Destination file: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export\!_bnw2-forge-1.16.5-36.2.35
+Copying file from: /!_bnw2-forge-1.16.5-36.2.35 to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/!_bnw2-forge-1.16.5-36.2.35
+Folder copy complete. Source folder: /!_bnw2-forge-1.16.5-36.2.35, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/!_bnw2-forge-1.16.5-36.2.35
+Processing complete for this entry.
+Processing entry:
+Source file: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\!_copyright.txt
+Destination file: C:\Users\NukelordBrown\Documents\Intelij Java Code\CopyAndModifyFolder\.\Blood-N-Wine-2-Export\Blood-N-Wine-2-Server-Export\!_copyright.txt
+Copying file from: /!_copyright.txt to Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/!_copyright.txt
+Folder copy complete. Source folder: /!_copyright.txt, Destination folder: Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/!_copyright.txt
+Processing complete for this entry.
+
+Task completed successfully.
