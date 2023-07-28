@@ -6,6 +6,7 @@ import java.net.URL;
 import java.nio.file.*;
 import java.util.*;
 
+
 public class CopyAndModifyFolder {
     private static final String LOG_EXTENSION = ".log";
     private static final String CONFIG_EXTENSION = ".txt";
@@ -120,15 +121,18 @@ public class CopyAndModifyFolder {
 
                     // Copy the source file to the destination file
                     copyFile(sourceEntryFile, destinationEntryFile, logWriter, inputFolder, outputFolder);
+
+                    // Check for deletions in the destination file's parent folder
+                    checkForDeletions(sourceEntryFile.getParentFile(), destinationEntryFile.getParentFile(), logWriter);
+
                     logWriter.println("Processing complete for this entry.");
                 }
 
                 logWriter.println("\nTask completed successfully.");
+                logWriter.flush(); // Flush the log to ensure all messages are written before the program exits
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-            System.out.println("Config entry not found or config file is not valid.");
         }
     }
 
@@ -183,22 +187,28 @@ public class CopyAndModifyFolder {
 
         File[] destinationFiles = destination.listFiles();
         if (destinationFiles != null) {
+            List<File> deletedFiles = new ArrayList<>();
+
             for (File destinationFile : destinationFiles) {
                 String relativePath = getRelativePath(destinationFile, destination);
-
                 File sourceFile = new File(source, relativePath);
+
                 if (!sourceFile.exists()) {
-                    if (destinationFile.isDirectory()) {
-                        deleteFolder(destinationFile, logWriter);
-                    } else {
-                        if (destinationFile.delete()) {
-                            logWriter.println("Deleted: " + destinationFile.getAbsolutePath());
-                        } else {
-                            logWriter.println("Failed to delete: " + destinationFile.getAbsolutePath());
-                        }
-                    }
+                    deletedFiles.add(destinationFile);
                 }
             }
+
+            if (!deletedFiles.isEmpty()) {
+                logWriter.println("WARNING PROGRAM MALFUNCTION: The following files were deleted in the source folder:");
+                for (File deletedFile : deletedFiles) {
+                    logWriter.println("Deleted file: " + deletedFile.getAbsolutePath());
+                }
+                logWriter.println("Please verify your configuration and program logic to prevent unintended deletions.");
+            } else {
+                logWriter.println("No deletions detected in the source folder.");
+            }
+        } else {
+            logWriter.println("Destination folder is empty or does not exist: " + destination.getAbsolutePath());
         }
 
         logWriter.println("Deletion check complete.");
@@ -309,8 +319,12 @@ public class CopyAndModifyFolder {
         return null;
     }
 
-    private static void copyFolder(File source, File destination, PrintWriter logWriter, String inputFolder, String outputFolder) throws IOException {
-        logWriter.println("Copying folder from: " + inputFolder + " to " + outputFolder);
+    private static void copyFolder(File source, File destination, PrintWriter logWriter, String sourceFolder, String destinationFolder) throws IOException {
+        // Normalize the input and output folder paths
+        Path sourcePath = Paths.get(source.getAbsolutePath()).normalize();
+        Path destinationPath = Paths.get(destination.getAbsolutePath()).normalize();
+
+        logWriter.println("Copying folder from:\n" + sourcePath + "\nto\n" + destinationPath);
 
         if (!destination.exists()) {
             Files.createDirectories(destination.toPath());
@@ -323,63 +337,110 @@ public class CopyAndModifyFolder {
 
                 try {
                     if (sourceFile.isDirectory()) {
-                        copyFolder(sourceFile, destinationFile, logWriter, inputFolder, outputFolder);
+                        copyFolder(sourceFile, destinationFile, logWriter, sourceFolder, destinationFolder);
                     } else {
-                        Files.copy(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        copyFile(sourceFile, destinationFile, logWriter, sourceFile.getAbsolutePath(), destinationFile.getAbsolutePath());
                     }
-                } catch (AccessDeniedException e) {
-                    logWriter.println("Access denied while copying file: " + sourceFile.getAbsolutePath());
                 } catch (IOException e) {
-                    logWriter.println("Error copying file: " + sourceFile.getAbsolutePath() + " - " + e.getMessage());
+                    if (Files.isRegularFile(sourceFile.toPath())) {
+                        logWriter.println("ERROR: Error copying file:\n" + sourceFile.getAbsolutePath() + " - " + e.getMessage());
+                    } else {
+                        logWriter.println("WARNING: Access denied while copying file:\n" + sourceFile.getAbsolutePath());
+                    }
                 }
             }
         } else {
-            logWriter.println("Source folder is empty or does not exist: " + source.getAbsolutePath());
+            logWriter.println("ERROR: Source folder is empty or does not exist:\n" + source.getAbsolutePath());
         }
 
-        logWriter.println("Folder copy complete. Source folder: " + inputFolder + ", Destination folder: " + outputFolder);
+        logWriter.println("Folder copy complete.\nSource folder: " + sourceFolder + "\nDestination folder: " + destinationFolder);
     }
 
 
+    private static void copyFile(File source, File destination, PrintWriter logWriter, String sourceFile, String destinationFile) throws IOException {
+        // Normalize the input and output file paths
+        Path sourcePath = Paths.get(source.getAbsolutePath()).normalize();
+        Path destinationPath = Paths.get(destination.getAbsolutePath()).normalize();
 
-    private static void copyFile(File source, File destination, PrintWriter logWriter, String inputFolder, String outputFolder) throws IOException {
-        logWriter.println("Copying file from: " + inputFolder + " to " + outputFolder);
+        logWriter.println("Copying file from:\n" + sourcePath + "\nto\n" + destinationPath);
+
         File parentDir = destination.getParentFile();
         if (!parentDir.exists()) {
             Files.createDirectories(destination.toPath());
         }
+
         if (source.exists()) {
             try {
-                Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            }catch (Exception e){
-                logWriter.println("Error while copying file. "+e.getMessage());
-                e.printStackTrace();
+                if (destination.exists()) {
+                    long sourceLastModified = source.lastModified();
+                    long destinationLastModified = destination.lastModified();
+
+                    if (destinationLastModified < sourceLastModified) {
+                        if (!destination.delete()) {
+                            logWriter.println("WARNING: Failed to delete existing file:\n" + destination.getAbsolutePath());
+                            logWriter.println("Skipping file copy.");
+                            return;
+                        }
+                        Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
+                    } else if (destinationLastModified == sourceLastModified) {
+                        logWriter.println("Destination file is up-to-date. Skipping file copy:\n" + destinationFile);
+                    } else {
+                        logWriter.println("Overwriting older file in destination folder:\n" + destinationFile);
+                        Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
+                    }
+                } else {
+                    Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
+                }
+            } catch (IOException e) {
+                if (Files.isRegularFile(source.toPath())) {
+                    logWriter.println("ERROR: Error copying file: " + sourceFile + " - " + e.getMessage());
+                } else {
+                    logWriter.println("WARNING: Access denied while copying file:\n" + sourceFile);
+                }
             }
         } else {
-            logWriter.println("Source folder is empty or does not exist: " + source.getAbsolutePath());
+            logWriter.println("ERROR: Source file not found:\n" + sourceFile);
         }
-
-        logWriter.println("Folder copy complete. Source folder: " + inputFolder + ", Destination folder: " + outputFolder);
     }
 
     private static void removeConfigFiles(List<String> configList, File destination, PrintWriter logWriter) {
         logWriter.println("Removing config files: " + configList + " from " + destination.getAbsolutePath());
 
-        for (String configFileName : configList) {
-            File configFile = new File(destination, configFileName);
-            if (configFile.exists()) {
-                if (configFile.delete()) {
-                    logWriter.println("Deleted: " + configFile.getAbsolutePath());
-                } else {
-                    logWriter.println("Failed to delete: " + configFile.getAbsolutePath());
+        File[] destinationFiles = destination.listFiles();
+        if (destinationFiles != null) {
+            for (File destinationFile : destinationFiles) {
+                String relativePath = getRelativePath(destinationFile, destination);
+                logWriter.println("Checking relativePath: " + relativePath);
+
+                if (configList.contains(relativePath)) {
+                    logWriter.println("Found match in configList: " + relativePath);
+
+                    File sourceFile = new File(destination.getParentFile(), relativePath);
+                    if (sourceFile.exists()) {
+                        if (destinationFile.isDirectory()) {
+                            deleteFolder(destinationFile, logWriter);
+                        } else {
+                            if (destinationFile.delete()) {
+                                logWriter.println("Deleted: " + destinationFile.getAbsolutePath());
+                            } else {
+                                logWriter.println("Failed to delete: " + destinationFile.getAbsolutePath());
+                            }
+                        }
+                    } else {
+                        logWriter.println("Source file not found: " + sourceFile.getAbsolutePath());
+                    }
                 }
-            } else {
-                logWriter.println("Config file not found: " + configFile.getAbsolutePath());
             }
+        } else {
+            logWriter.println("Destination folder is empty or does not exist: " + destination.getAbsolutePath());
         }
 
         logWriter.println("Config file removal complete.");
     }
+
 
     private static void deleteFolders(List<String> folderList, File destination, PrintWriter logWriter) {
         logWriter.println("Deleting folders: " + folderList + " from " + destination.getAbsolutePath());
