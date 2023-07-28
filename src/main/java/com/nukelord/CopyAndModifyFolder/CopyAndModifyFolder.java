@@ -321,10 +321,16 @@ public class CopyAndModifyFolder {
             for (File sourceFile : files) {
                 File destinationFile = new File(destination, sourceFile.getName());
 
-                if (sourceFile.isDirectory()) {
-                    copyFolder(sourceFile, destinationFile, logWriter, inputFolder, outputFolder);
-                } else {
-                    Files.copy(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                try {
+                    if (sourceFile.isDirectory()) {
+                        copyFolder(sourceFile, destinationFile, logWriter, inputFolder, outputFolder);
+                    } else {
+                        Files.copy(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    }
+                } catch (AccessDeniedException e) {
+                    logWriter.println("Access denied while copying file: " + sourceFile.getAbsolutePath());
+                } catch (IOException e) {
+                    logWriter.println("Error copying file: " + sourceFile.getAbsolutePath() + " - " + e.getMessage());
                 }
             }
         } else {
