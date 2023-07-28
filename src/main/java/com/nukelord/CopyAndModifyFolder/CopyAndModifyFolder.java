@@ -1,34 +1,53 @@
 package com.nukelord.CopyAndModifyFolder;
 
 import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.*;
 import java.util.*;
 
 public class CopyAndModifyFolder {
-    private static final String CONFIG_FILE = "config-server-client-side-files.txt";
-    private static final String SOURCE_FOLDER = "source_folder";
-    private static final String DESTINATION_FOLDER = "destination_folder";
-    private static final String LOG_FILE = "CopyAndModifyFolder.log";
+    private static final String LOG_EXTENSION = ".log";
+    private static final String CONFIG_EXTENSION = ".txt";
 
     public static void main(String[] args) {
-        String configFilePath = "config-server-client-side-files.txt"; // Provide the correct path to the config file
-//the reason why its a string is because it supports renaming the config.txt via cmd so for non mc uses its not named larp kek
+        String configFileName;
+        if (isRunningAsCompiledJar()) {
+            String jarFileName = getJarFileName();
+            configFileName = jarFileName.replace(".jar", CONFIG_EXTENSION);
+        } else {
+            configFileName = CopyAndModifyFolder.class.getSimpleName() + CONFIG_EXTENSION;
+        }
+
+        // Use the current working directory to locate the configuration file
+        String configFilePath = getConfigFilePath(configFileName);
+
         // Read configuration from the config file
         ConfigEntry mainConfigEntry = readConfigFile(configFilePath);
 
         if (mainConfigEntry != null) {
+            // Get the name of the JAR file or class file
+            String jarFileName = new File(CopyAndModifyFolder.class.getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .getPath())
+                    .getName();
+
+            // Generate the log file name
+            String logFileName = jarFileName.replace(".jar", LOG_EXTENSION);
+
             // Get the main directory level (root folder from where the program should run)
             int mainDirectoryLevel = mainConfigEntry.getMainDirectoryLevel();
 
             // Set the source and destination folders based on the main directory level
-            File current_directory = new File( ".");
+            File current_directory = new File(".");
 
             for (int i = 0; i < mainDirectoryLevel; i++) {
                 current_directory = current_directory.getParentFile();
             }
 
             // Create log file
-            try (PrintWriter logWriter = new PrintWriter(new FileWriter(LOG_FILE))) {
+            try (PrintWriter logWriter = new PrintWriter(new FileWriter(logFileName))) {
                 List<SourceFolderConfig> sourceFolders = mainConfigEntry.getSourceFolders();
 
                 // Log main configuration variables
@@ -41,7 +60,7 @@ public class CopyAndModifyFolder {
 
                 for (SourceFolderConfig folderConfig : sourceFolders) {
                     String inputFolder = folderConfig.getSource();
-                    String outputFolder =(mainConfigEntry.isUseCustomOutputDir() ? mainConfigEntry.getGlobalOverrideCustomOutputDir() :"")+ folderConfig.getCustomOutputDir();
+                    String outputFolder = (mainConfigEntry.isUseCustomOutputDir() ? mainConfigEntry.getGlobalOverrideCustomOutputDir() : "") + folderConfig.getCustomOutputDir();
 
                     if (inputFolder == null || outputFolder == null) {
                         logWriter.println("Skipping entry: Incomplete configuration. Both source and destination folders must be specified.");
@@ -75,11 +94,9 @@ public class CopyAndModifyFolder {
                     logWriter.println("Processing complete for this entry.");
                 }
 
-
-
                 for (SourceFilesConfig fileConfig : mainConfigEntry.getSourceFiles()) {
                     String inputFolder = fileConfig.getSource();
-                    String outputFolder =(mainConfigEntry.isUseCustomOutputDir() ? mainConfigEntry.getGlobalOverrideCustomOutputDir() :"")+ fileConfig.getCustomOutputDir();
+                    String outputFolder = (mainConfigEntry.isUseCustomOutputDir() ? mainConfigEntry.getGlobalOverrideCustomOutputDir() : "") + fileConfig.getCustomOutputDir();
 
                     if (inputFolder == null || outputFolder == null) {
                         logWriter.println("Skipping entry: Incomplete configuration. Both source and destination files must be specified.");
@@ -87,17 +104,17 @@ public class CopyAndModifyFolder {
                         logWriter.println("Destination file: " + (outputFolder != null ? outputFolder : "Not set"));
                         continue;
                     }
-//sec before u change im gonna test adding \. larp lol so ./ is snyt now it needs to do this sec
-                    File sourceEntryFolder = new File(current_directory, inputFolder);
-                    File destinationEntryFolder = new File(current_directory, outputFolder);
+
+                    File sourceEntryFile = new File(current_directory, inputFolder);
+                    File destinationEntryFile = new File(current_directory, outputFolder);
 
                     // Log specific entry configurations
                     logWriter.println("Processing entry:");
-                    logWriter.println("Source file: " + sourceEntryFolder.getAbsolutePath());
-                    logWriter.println("Destination file: " + destinationEntryFolder.getAbsolutePath());
+                    logWriter.println("Source file: " + sourceEntryFile.getAbsolutePath());
+                    logWriter.println("Destination file: " + destinationEntryFile.getAbsolutePath());
 
                     // Copy the source file to the destination file
-                    copyFile(sourceEntryFolder, destinationEntryFolder, logWriter, inputFolder, outputFolder);
+                    copyFile(sourceEntryFile, destinationEntryFile, logWriter, inputFolder, outputFolder);
                     logWriter.println("Processing complete for this entry.");
                 }
 
@@ -109,6 +126,53 @@ public class CopyAndModifyFolder {
             System.out.println("Config entry not found or config file is not valid.");
         }
     }
+
+    private static boolean isRunningAsCompiledJar() {
+        String jarFilePath = CopyAndModifyFolder.class.getProtectionDomain()
+                .getCodeSource()
+                .getLocation()
+                .getPath();
+        return jarFilePath.toLowerCase().endsWith(".jar");
+    }
+
+    private static String getJarFileName() {
+        String jarFilePath;
+        try {
+            jarFilePath = CopyAndModifyFolder.class.getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .toURI()
+                    .getPath();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            return null;
+        }
+        File jarFile = new File(jarFilePath);
+        return jarFile.getName();
+    }
+
+    private static String getConfigFilePath(String configFileName) {
+        // Try to find the configuration file in the current working directory
+        Path configPath = Paths.get(configFileName);
+        if (Files.exists(configPath)) {
+            return configPath.toString();
+        }
+
+        // If the configuration file is not found in the current working directory,
+        // try to locate it relative to the class path
+        URL resource = CopyAndModifyFolder.class.getClassLoader().getResource(configFileName);
+        if (resource != null) {
+            try {
+                return Paths.get(resource.toURI()).toString();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // If the configuration file is not found in both locations, return null
+        return null;
+    }
+
     private static void checkForDeletions(File source, File destination, PrintWriter logWriter) {
         logWriter.println("Checking for deletions in " + destination.getAbsolutePath());
 
@@ -183,7 +247,7 @@ public class CopyAndModifyFolder {
                     isFolderList = true;
                     isSourceFiles = false;
                 }
-                 else {
+                else {
                     if (isSourceFolders || isSourceFiles) {
                         String source = "";
                         String customOutputDir = "";

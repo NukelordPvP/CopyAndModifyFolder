@@ -40,3 +40,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+#Ignore Testing Output of Program
+Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/*
+!Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/idk bro.txt
