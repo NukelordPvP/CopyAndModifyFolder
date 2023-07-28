@@ -464,7 +464,7 @@ public class CopyAndModifyFolder {
                 if (configList.contains(relativePath)) {
                     logWriter.println("Found match in configList: " + relativePath);
 
-                    File sourceFile = new File(destination.getParentFile(), relativePath);
+                    File sourceFile = new File(destination, relativePath);
                     if (sourceFile.exists()) {
                         if (destinationFile.isDirectory()) {
                             deleteFolder(destinationFile, logWriter);
