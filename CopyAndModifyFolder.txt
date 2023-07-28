@@ -30,20 +30,20 @@ USE_CUSTOM_OUTPUT_DIR:false
 # Custom output directory for each source folder (if USE_CUSTOM_OUTPUT_DIR is set to true).
 SOURCE_FOLDERS:
 
-  - SOURCE=./config
-    CUSTOM_OUTPUT_DIR=./config
+  - SOURCE=/config
+    CUSTOM_OUTPUT_DIR=/config
 
-  - SOURCE=./defaultconfigs
-    CUSTOM_OUTPUT_DIR=./defaultconfigs
+  - SOURCE=/defaultconfigs
+    CUSTOM_OUTPUT_DIR=/defaultconfigs
 
-  - SOURCE=./mods
-    CUSTOM_OUTPUT_DIR=./mods
+  - SOURCE=/mods
+    CUSTOM_OUTPUT_DIR=/mods
 
-  - SOURCE=./openloader
-    CUSTOM_OUTPUT_DIR=./openloader
+  - SOURCE=/openloader
+    CUSTOM_OUTPUT_DIR=/openloader
 
-  - SOURCE=./scripts
-    CUSTOM_OUTPUT_DIR=./scripts
+  - SOURCE=/scripts
+    CUSTOM_OUTPUT_DIR=/scripts
 
 #Copys? confirmed!
 #Checks for deletions? NO

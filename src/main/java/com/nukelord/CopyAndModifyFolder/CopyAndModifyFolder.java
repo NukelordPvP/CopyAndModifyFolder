@@ -81,7 +81,7 @@ public class CopyAndModifyFolder {
                 current_directory = current_directory.getParentFile();
             }
 
-            // Create log file using the determined log file name with .log extension
+            // Create log file using the determined log file name
             try (PrintWriter logWriter = new PrintWriter(new FileWriter(logFileName))) {
                 List<SourceFolderConfig> sourceFolders = mainConfigEntry.getSourceFolders();
 
@@ -232,7 +232,6 @@ public class CopyAndModifyFolder {
         File[] destinationFiles = destination.listFiles();
         if (destinationFiles != null) {
             List<File> deletedFiles = new ArrayList<>();
-            List<File> failedDeletions = new ArrayList<>();
 
             for (File destinationFile : destinationFiles) {
                 String relativePath = getRelativePath(destinationFile, destination);
@@ -243,52 +242,20 @@ public class CopyAndModifyFolder {
                 }
             }
 
-            // Log the list of deleted files
             if (!deletedFiles.isEmpty()) {
-                logWriter.println("Deleted files in the destination folder:");
+                logWriter.println("WARNING PROGRAM MALFUNCTION: The following files were deleted in the source folder:");
                 for (File deletedFile : deletedFiles) {
-                    logWriter.println("Deleted file: " + getColoredMessage(deletedFile.getAbsolutePath(), DELETION));
+                    logWriter.println("Deleted file: " + deletedFile.getAbsolutePath());
                 }
+                logWriter.println("Please verify your configuration and program logic to prevent unintended deletions.");
             } else {
                 logWriter.println("No deletions detected in the source folder.");
-            }
-
-            // Check for failed deletions
-            for (File destinationFile : destinationFiles) {
-                String relativePath = getRelativePath(destinationFile, destination);
-                File sourceFile = new File(source, relativePath);
-
-                if (sourceFile.exists() && !destinationFile.delete()) {
-                    failedDeletions.add(destinationFile);
-                }
-            }
-
-            // Log the list of failed deletions
-            if (!failedDeletions.isEmpty()) {
-                logWriter.println(PINK + "WARNING: Failed to delete the following files from the output folder:");
-                for (File failedDeletion : failedDeletions) {
-                    logWriter.println("File: " + getColoredMessage(failedDeletion.getAbsolutePath(), WARNING));
-                }
             }
         } else {
             logWriter.println("Destination folder is empty or does not exist: " + destination.getAbsolutePath());
         }
 
         logWriter.println("Deletion check complete.");
-    }
-
-    // Helper method to list files recursively for logging
-    private static void listFilesRecursively(File directory, PrintWriter logWriter) {
-        File[] files = directory.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    listFilesRecursively(file, logWriter);
-                } else {
-                    logWriter.println("File: " + file.getAbsolutePath());
-                }
-            }
-        }
     }
     private static String getRelativePath(File file, File baseDir) {
         // Get the relative path of the file with respect to the base directory
@@ -396,7 +363,6 @@ public class CopyAndModifyFolder {
         return null;
     }
 
-
     private static void copyFolder(File source, File destination, PrintWriter logWriter, String sourceFolder, String destinationFolder) throws IOException {
         // Normalize the input and output folder paths
         Path sourcePath = Paths.get(source.getAbsolutePath()).normalize();
@@ -453,19 +419,25 @@ public class CopyAndModifyFolder {
                     long sourceLastModified = source.lastModified();
                     long destinationLastModified = destination.lastModified();
 
-                    if (destinationLastModified == sourceLastModified) {
-                        logWriter.println(GREEN + "Destination file is up-to-date. Skipping file copy:\n" + destinationFile + RESET);
-                        return;
-                    } else if (destinationLastModified > sourceLastModified) {
-                        logWriter.println(PURPLE + "Overwriting older file in destination folder:\n" + destinationFile + RESET);
+                    if (destinationLastModified < sourceLastModified) {
+                        if (!destination.delete()) {
+                            logWriter.println("WARNING: Failed to delete existing file:\n" + destination.getAbsolutePath());
+                            logWriter.println("Skipping file copy.");
+                            return;
+                        }
+                        Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
+                    } else if (destinationLastModified == sourceLastModified) {
+                        logWriter.println("Destination file is up-to-date. Skipping file copy:\n" + destinationFile);
                     } else {
-                        logWriter.println(GREEN + "Destination file is newer than the source. Skipping file copy:\n" + destinationFile + RESET);
-                        return;
+                        logWriter.println("Overwriting older file in destination folder:\n" + destinationFile);
+                        Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
                     }
+                } else {
+                    Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
                 }
-
-                Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                logWriter.println(DARK_GREEN + "File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile + RESET);
             } catch (IOException e) {
                 if (Files.isRegularFile(source.toPath())) {
                     logWriter.println("ERROR: Error copying file: " + sourceFile + " - " + e.getMessage());

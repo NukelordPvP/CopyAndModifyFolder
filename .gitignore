@@ -44,3 +44,6 @@ bin/
 #Ignore Testing Output of Program
 Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/*
 !Blood-N-Wine-2-Export/Blood-N-Wine-2-Server-Export/idk bro.txt
+config
+mods
+mods_backup
