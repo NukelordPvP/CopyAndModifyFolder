@@ -8,9 +8,38 @@ import java.util.*;
 
 
 public class CopyAndModifyFolder {
+    // ANSI escape code colors
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_GREY = "\u001B[90m";
+    private static final String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_PURPLE = "\u001B[35m"; // Purple color code added
+
+    // Color variable id constants
+    private static final String COLOR_WARNING = ANSI_YELLOW; // Change this to ANSI_YELLOW or any gold color code
+    private static final String COLOR_SOURCE = ANSI_GREY;
+    private static final String COLOR_OUTPUT = ANSI_RED;
+    private static final String COLOR_OVERWRITE = ANSI_PURPLE;
+    private static final String COLOR_DELETION = ANSI_PURPLE; // Change this to ANSI_PURPLE or any pink color code for deletions
+    private static final String COLOR_GREY = ANSI_GREY;
+
+    private static final String WARNING = COLOR_WARNING;
+    private static final String SOURCE = COLOR_GREY;
+    private static final String OUTPUT = COLOR_OUTPUT;
+    private static final String OVERWRITE = COLOR_OVERWRITE;
+    private static final String DELETION = COLOR_DELETION;
+    private static final String GREY = COLOR_GREY;
     private static final String LOG_EXTENSION = ".log";
     private static final String CONFIG_EXTENSION = ".txt";
+    private static final String ANSI_LOG_EXTENSION = ".ans";
 
+    private static final String RESET = "\u001B[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String DARK_GREEN = "\u001B[32m";
+    private static final String GREEN = "\u001B[32m";
+    private static final String PURPLE = "\u001B[35m";
+    private static final String PINK = "\u001B[35m";
     public static void main(String[] args) {
         // Determine the configuration file name based on the program execution type
         String configFileName;
@@ -19,10 +48,10 @@ public class CopyAndModifyFolder {
         if (isRunningAsCompiledJar()) {
             String jarFileName = getJarFileName();
             configFileName = jarFileName.replace(".jar", CONFIG_EXTENSION);
-            logFileName = jarFileName.replace(".jar", LOG_EXTENSION);
+            logFileName = jarFileName.replace(".jar", ANSI_LOG_EXTENSION);
         } else {
             configFileName = CopyAndModifyFolder.class.getSimpleName() + CONFIG_EXTENSION;
-            logFileName = CopyAndModifyFolder.class.getSimpleName() + LOG_EXTENSION;
+            logFileName = CopyAndModifyFolder.class.getSimpleName() + ANSI_LOG_EXTENSION;
         }
 
         // Use the current working directory to locate the configuration file
@@ -52,26 +81,27 @@ public class CopyAndModifyFolder {
                 current_directory = current_directory.getParentFile();
             }
 
-            // Create log file using the determined log file name
+            // Create log file using the determined log file name with .log extension
             try (PrintWriter logWriter = new PrintWriter(new FileWriter(logFileName))) {
                 List<SourceFolderConfig> sourceFolders = mainConfigEntry.getSourceFolders();
 
                 // Log main configuration variables
-                logWriter.println("MAIN_DIRECTORY_LEVEL:" + mainDirectoryLevel);
-                logWriter.println("RUN_FROM_MODS:" + mainConfigEntry.isRunFromMods());
-                logWriter.println("GLOBAL_OVERRIDE_CUSTOM_OUTPUT_DIR:" + (mainConfigEntry.getGlobalOverrideCustomOutputDir() != null ?
-                        "\"" + mainConfigEntry.getGlobalOverrideCustomOutputDir() + "\"" : "Not set"));
-                logWriter.println("USE_CUSTOM_OUTPUT_DIR:" + mainConfigEntry.isUseCustomOutputDir());
-                logWriter.println();
+                println(logWriter, "MAIN_DIRECTORY_LEVEL:" + mainDirectoryLevel, WARNING);
+                println(logWriter, "RUN_FROM_MODS:" + mainConfigEntry.isRunFromMods(), WARNING);
+                println(logWriter, "GLOBAL_OVERRIDE_CUSTOM_OUTPUT_DIR:" + (mainConfigEntry.getGlobalOverrideCustomOutputDir() != null ?
+                        "\"" + mainConfigEntry.getGlobalOverrideCustomOutputDir() + "\"" : "Not set"), WARNING);
+                println(logWriter, "USE_CUSTOM_OUTPUT_DIR:" + mainConfigEntry.isUseCustomOutputDir(), WARNING);
+                println(logWriter, "", WARNING); // Empty line for spacing
+
 
                 for (SourceFolderConfig folderConfig : sourceFolders) {
                     String inputFolder = folderConfig.getSource();
                     String outputFolder = (mainConfigEntry.isUseCustomOutputDir() ? mainConfigEntry.getGlobalOverrideCustomOutputDir() : "") + folderConfig.getCustomOutputDir();
 
                     if (inputFolder == null || outputFolder == null) {
-                        logWriter.println("Skipping entry: Incomplete configuration. Both source and destination folders must be specified.");
-                        logWriter.println("Source folder: " + (inputFolder != null ? inputFolder : "Not set"));
-                        logWriter.println("Destination folder: " + (outputFolder != null ? outputFolder : "Not set"));
+                        println(logWriter, getColoredMessage("Skipping entry: Incomplete configuration. Both source and destination folders must be specified.", WARNING), WARNING);
+                        println(logWriter, getColoredMessage("Source folder: " + (inputFolder != null ? inputFolder : "Not set"), WARNING), WARNING);
+                        println(logWriter, getColoredMessage("Destination folder: " + (outputFolder != null ? outputFolder : "Not set"), WARNING), WARNING);
                         continue;
                     }
 
@@ -79,11 +109,11 @@ public class CopyAndModifyFolder {
                     File destinationEntryFolder = new File(current_directory, outputFolder);
 
                     // Log specific entry configurations
-                    logWriter.println("Processing entry:");
-                    logWriter.println("Source folder: " + sourceEntryFolder.getAbsolutePath());
-                    logWriter.println("Destination folder: " + destinationEntryFolder.getAbsolutePath());
-                    logWriter.println("CONFIG_LIST: " + mainConfigEntry.getConfigList());
-                    logWriter.println("FOLDER_LIST: " + mainConfigEntry.getFolderList());
+                    println(logWriter, "Processing entry:", WARNING);
+                    printFilePath(logWriter, sourceEntryFolder.getAbsolutePath(), GREY);
+                    printFilePath(logWriter, destinationEntryFolder.getAbsolutePath(), GREY);
+                    println(logWriter, "CONFIG_LIST: " + mainConfigEntry.getConfigList(), WARNING);
+                    println(logWriter, "FOLDER_LIST: " + mainConfigEntry.getFolderList(), WARNING);
 
                     // Copy the source folder to the destination folder
                     copyFolder(sourceEntryFolder, destinationEntryFolder, logWriter, inputFolder, outputFolder);
@@ -97,7 +127,7 @@ public class CopyAndModifyFolder {
                     // Check for deletions in the destination folder
                     checkForDeletions(sourceEntryFolder, destinationEntryFolder, logWriter);
 
-                    logWriter.println("Processing complete for this entry.");
+                    println(logWriter, getColoredMessage("Processing complete for this entry.", WARNING), WARNING);
                 }
 
                 for (SourceFilesConfig fileConfig : mainConfigEntry.getSourceFiles()) {
@@ -115,9 +145,9 @@ public class CopyAndModifyFolder {
                     File destinationEntryFile = new File(current_directory, outputFolder);
 
                     // Log specific entry configurations
-                    logWriter.println("Processing entry:");
-                    logWriter.println("Source file: " + sourceEntryFile.getAbsolutePath());
-                    logWriter.println("Destination file: " + destinationEntryFile.getAbsolutePath());
+                    println(logWriter, "Processing entry:", WARNING);
+                    printFilePath(logWriter, sourceEntryFile.getAbsolutePath(), GREY);
+                    printFilePath(logWriter, destinationEntryFile.getAbsolutePath(), GREY);
 
                     // Copy the source file to the destination file
                     copyFile(sourceEntryFile, destinationEntryFile, logWriter, inputFolder, outputFolder);
@@ -128,12 +158,26 @@ public class CopyAndModifyFolder {
                     logWriter.println("Processing complete for this entry.");
                 }
 
-                logWriter.println("\nTask completed successfully.");
+                println(logWriter, getColoredMessage("Task completed successfully.", WARNING), WARNING);
                 logWriter.flush(); // Flush the log to ensure all messages are written before the program exits
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+    // Helper method to apply color to a message based on the specified color variable id
+    private static String getColoredMessage(String message, String color) {
+        return color + message + ANSI_RESET;
+    }
+
+    // Modified println methods with color variable id
+    private static void println(PrintWriter logWriter, String message, String color) {
+        logWriter.println(getColoredMessage(message, color));
+    }
+
+    // Print source and destination file paths with colors
+    private static void printFilePath(PrintWriter logWriter, String filePath, String color) {
+        println(logWriter, filePath, color);
     }
 
     private static boolean isRunningAsCompiledJar() {
@@ -188,6 +232,7 @@ public class CopyAndModifyFolder {
         File[] destinationFiles = destination.listFiles();
         if (destinationFiles != null) {
             List<File> deletedFiles = new ArrayList<>();
+            List<File> failedDeletions = new ArrayList<>();
 
             for (File destinationFile : destinationFiles) {
                 String relativePath = getRelativePath(destinationFile, destination);
@@ -198,20 +243,52 @@ public class CopyAndModifyFolder {
                 }
             }
 
+            // Log the list of deleted files
             if (!deletedFiles.isEmpty()) {
-                logWriter.println("WARNING PROGRAM MALFUNCTION: The following files were deleted in the source folder:");
+                logWriter.println("Deleted files in the destination folder:");
                 for (File deletedFile : deletedFiles) {
-                    logWriter.println("Deleted file: " + deletedFile.getAbsolutePath());
+                    logWriter.println("Deleted file: " + getColoredMessage(deletedFile.getAbsolutePath(), DELETION));
                 }
-                logWriter.println("Please verify your configuration and program logic to prevent unintended deletions.");
             } else {
                 logWriter.println("No deletions detected in the source folder.");
+            }
+
+            // Check for failed deletions
+            for (File destinationFile : destinationFiles) {
+                String relativePath = getRelativePath(destinationFile, destination);
+                File sourceFile = new File(source, relativePath);
+
+                if (sourceFile.exists() && !destinationFile.delete()) {
+                    failedDeletions.add(destinationFile);
+                }
+            }
+
+            // Log the list of failed deletions
+            if (!failedDeletions.isEmpty()) {
+                logWriter.println(PINK + "WARNING: Failed to delete the following files from the output folder:");
+                for (File failedDeletion : failedDeletions) {
+                    logWriter.println("File: " + getColoredMessage(failedDeletion.getAbsolutePath(), WARNING));
+                }
             }
         } else {
             logWriter.println("Destination folder is empty or does not exist: " + destination.getAbsolutePath());
         }
 
         logWriter.println("Deletion check complete.");
+    }
+
+    // Helper method to list files recursively for logging
+    private static void listFilesRecursively(File directory, PrintWriter logWriter) {
+        File[] files = directory.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    listFilesRecursively(file, logWriter);
+                } else {
+                    logWriter.println("File: " + file.getAbsolutePath());
+                }
+            }
+        }
     }
     private static String getRelativePath(File file, File baseDir) {
         // Get the relative path of the file with respect to the base directory
@@ -319,6 +396,7 @@ public class CopyAndModifyFolder {
         return null;
     }
 
+
     private static void copyFolder(File source, File destination, PrintWriter logWriter, String sourceFolder, String destinationFolder) throws IOException {
         // Normalize the input and output folder paths
         Path sourcePath = Paths.get(source.getAbsolutePath()).normalize();
@@ -345,7 +423,7 @@ public class CopyAndModifyFolder {
                     if (Files.isRegularFile(sourceFile.toPath())) {
                         logWriter.println("ERROR: Error copying file:\n" + sourceFile.getAbsolutePath() + " - " + e.getMessage());
                     } else {
-                        logWriter.println("WARNING: Access denied while copying file:\n" + sourceFile.getAbsolutePath());
+                        logWriter.println(PINK + "WARNING: Access denied while copying file:\n" + sourceFile.getAbsolutePath() + RESET);
                     }
                 }
             }
@@ -353,7 +431,7 @@ public class CopyAndModifyFolder {
             logWriter.println("ERROR: Source folder is empty or does not exist:\n" + source.getAbsolutePath());
         }
 
-        logWriter.println("Folder copy complete.\nSource folder: " + sourceFolder + "\nDestination folder: " + destinationFolder);
+        logWriter.println(DARK_GREEN + "Folder copy complete.\nSource folder: " + sourceFolder + "\nDestination folder: " + destinationFolder + RESET);
     }
 
 
@@ -375,30 +453,24 @@ public class CopyAndModifyFolder {
                     long sourceLastModified = source.lastModified();
                     long destinationLastModified = destination.lastModified();
 
-                    if (destinationLastModified < sourceLastModified) {
-                        if (!destination.delete()) {
-                            logWriter.println("WARNING: Failed to delete existing file:\n" + destination.getAbsolutePath());
-                            logWriter.println("Skipping file copy.");
-                            return;
-                        }
-                        Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                        logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
-                    } else if (destinationLastModified == sourceLastModified) {
-                        logWriter.println("Destination file is up-to-date. Skipping file copy:\n" + destinationFile);
+                    if (destinationLastModified == sourceLastModified) {
+                        logWriter.println(GREEN + "Destination file is up-to-date. Skipping file copy:\n" + destinationFile + RESET);
+                        return;
+                    } else if (destinationLastModified > sourceLastModified) {
+                        logWriter.println(PURPLE + "Overwriting older file in destination folder:\n" + destinationFile + RESET);
                     } else {
-                        logWriter.println("Overwriting older file in destination folder:\n" + destinationFile);
-                        Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                        logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
+                        logWriter.println(GREEN + "Destination file is newer than the source. Skipping file copy:\n" + destinationFile + RESET);
+                        return;
                     }
-                } else {
-                    Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                    logWriter.println("File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile);
                 }
+
+                Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                logWriter.println(DARK_GREEN + "File copied successfully.\nSource file: " + sourceFile + "\nDestination file: " + destinationFile + RESET);
             } catch (IOException e) {
                 if (Files.isRegularFile(source.toPath())) {
                     logWriter.println("ERROR: Error copying file: " + sourceFile + " - " + e.getMessage());
                 } else {
-                    logWriter.println("WARNING: Access denied while copying file:\n" + sourceFile);
+                    logWriter.println(PINK + "WARNING: Access denied while copying file:\n" + sourceFile + RESET);
                 }
             }
         } else {
@@ -407,7 +479,9 @@ public class CopyAndModifyFolder {
     }
 
     private static void removeConfigFiles(List<String> configList, File destination, PrintWriter logWriter) {
-        logWriter.println("Removing config files: " + configList + " from " + destination.getAbsolutePath());
+        println(logWriter, "Removing config files: " + configList + " from ", WARNING);
+        printFilePath(logWriter, destination.getAbsolutePath(), WARNING);
+
 
         File[] destinationFiles = destination.listFiles();
         if (destinationFiles != null) {
@@ -438,23 +512,25 @@ public class CopyAndModifyFolder {
             logWriter.println("Destination folder is empty or does not exist: " + destination.getAbsolutePath());
         }
 
-        logWriter.println("Config file removal complete.");
+        println(logWriter, "Config file removal complete.", WARNING);
     }
 
 
     private static void deleteFolders(List<String> folderList, File destination, PrintWriter logWriter) {
-        logWriter.println("Deleting folders: " + folderList + " from " + destination.getAbsolutePath());
+        println(logWriter, "Deleting folders: " + folderList + " from ", WARNING);
+        printFilePath(logWriter, destination.getAbsolutePath(), WARNING);
 
         for (String folderName : folderList) {
             File folder = new File(destination, folderName);
             if (folder.exists()) {
                 deleteFolder(folder, logWriter);
             } else {
-                logWriter.println("Folder not found: " + folder.getAbsolutePath());
+                println(logWriter, "Folder not found:", WARNING);
+                printFilePath(logWriter, folder.getAbsolutePath(), WARNING);
             }
         }
 
-        logWriter.println("Folder deletion complete.");
+        println(logWriter, "Folder deletion complete.", WARNING);
     }
 
     private static void deleteFolder(File folder, PrintWriter logWriter) {
@@ -465,18 +541,22 @@ public class CopyAndModifyFolder {
                     deleteFolder(file, logWriter);
                 } else {
                     if (file.delete()) {
-                        logWriter.println("Deleted: " + file.getAbsolutePath());
+                        println(logWriter, "Deleted:", DELETION);
+                        printFilePath(logWriter, file.getAbsolutePath(), DELETION);
                     } else {
-                        logWriter.println("Failed to delete: " + file.getAbsolutePath());
+                        println(logWriter, "Failed to delete:", WARNING);
+                        printFilePath(logWriter, file.getAbsolutePath(), WARNING);
                     }
                 }
             }
         }
 
         if (folder.delete()) {
-            logWriter.println("Deleted folder: " + folder.getAbsolutePath());
+            println(logWriter, "Deleted folder:", DELETION);
+            printFilePath(logWriter, folder.getAbsolutePath(), DELETION);
         } else {
-            logWriter.println("Failed to delete folder: " + folder.getAbsolutePath());
+            println(logWriter, "Failed to delete folder:", WARNING);
+            printFilePath(logWriter, folder.getAbsolutePath(), WARNING);
         }
     }
     private static class SourceFilesConfig {
