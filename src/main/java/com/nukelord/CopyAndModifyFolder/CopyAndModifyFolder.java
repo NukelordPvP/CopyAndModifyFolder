@@ -487,11 +487,11 @@ public class CopyAndModifyFolder {
                             deleteFolder(destinationFile, logWriter);
                         } else {
                             //todo: delete code is disabled rn
-//                            if (destinationFile.delete()) {
-//                                logWriter.println("Deleted: " + destinationFile.getAbsolutePath());
-//                            } else {
-//                                logWriter.println("Failed to delete: " + destinationFile.getAbsolutePath());
-//                            }
+                            if (destinationFile.delete()) {
+                                logWriter.println("Deleted: " + destinationFile.getAbsolutePath());
+                            } else {
+                                logWriter.println("Failed to delete: " + destinationFile.getAbsolutePath());
+                            }
                         }
                     } else {
                         logWriter.println("Source file not found: " + destinationFile.getAbsolutePath());
