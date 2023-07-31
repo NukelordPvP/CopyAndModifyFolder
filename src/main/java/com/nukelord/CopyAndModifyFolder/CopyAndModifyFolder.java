@@ -50,7 +50,7 @@ public class CopyAndModifyFolder {
             configFileName = jarFileName.replace(".jar", CONFIG_EXTENSION);
             logFileName = jarFileName.replace(".jar", ANSI_LOG_EXTENSION);
         } else {
-            configFileName = CopyAndModifyFolder.class.getSimpleName() + CONFIG_EXTENSION;
+            configFileName ="Blood-N-Wine-2-Server-Export.txt"; //CopyAndModifyFolder.class.getSimpleName() + CONFIG_EXTENSION;
             logFileName = CopyAndModifyFolder.class.getSimpleName() + ANSI_LOG_EXTENSION;
         }
 
@@ -114,6 +114,7 @@ public class CopyAndModifyFolder {
                     printFilePath(logWriter, destinationEntryFolder.getAbsolutePath(), GREY);
                     println(logWriter, "CONFIG_LIST: " + mainConfigEntry.getConfigList(), WARNING);
                     println(logWriter, "FOLDER_LIST: " + mainConfigEntry.getFolderList(), WARNING);
+                    println(logWriter, "SOURCE_FILES: " + mainConfigEntry.getSourceFiles(), WARNING);
 
                     // Copy the source folder to the destination folder
                     copyFolder(sourceEntryFolder, destinationEntryFolder, logWriter, inputFolder, outputFolder);
@@ -164,6 +165,12 @@ public class CopyAndModifyFolder {
                 e.printStackTrace();
             }
         }
+        else {
+            // If mainConfigEntry is null or there was an error, print an error message and exit with code 1.
+            System.err.println("Error occurred while running the program.");
+            System.exit(1);
+        }
+        System.exit(0);
     }
     // Helper method to apply color to a message based on the specified color variable id
     private static String getColoredMessage(String message, String color) {
@@ -259,9 +266,18 @@ public class CopyAndModifyFolder {
     }
     private static String getRelativePath(File file, File baseDir) {
         // Get the relative path of the file with respect to the base directory
-        Path filePath = file.toPath();
-        Path basePath = baseDir.toPath();
-        return basePath.relativize(filePath).toString();
+        Path filePath = file.toPath().toAbsolutePath();
+        Path basePath = baseDir.toPath().toAbsolutePath();
+
+        try {
+            Path relativePath = basePath.relativize(filePath);
+            return relativePath.toString();
+        } catch (IllegalArgumentException e) {
+            System.err.println("Error computing relative path for:");
+            System.err.println("File: " + filePath);
+            System.err.println("Base Directory: " + basePath);
+            throw e;
+        }
     }
     private static ConfigEntry readConfigFile(String configFilePath) {
         try (Scanner scanner = new Scanner(new File(configFilePath))) {
@@ -454,29 +470,31 @@ public class CopyAndModifyFolder {
         println(logWriter, "Removing config files: " + configList + " from ", WARNING);
         printFilePath(logWriter, destination.getAbsolutePath(), WARNING);
 
+        // Create a separate reference to the destination folder to prevent accidental deletion of source files
+        File destinationFolder = new File(destination.getAbsolutePath());
 
         File[] destinationFiles = destination.listFiles();
         if (destinationFiles != null) {
             for (File destinationFile : destinationFiles) {
-                String relativePath = getRelativePath(destinationFile, destination);
+                String relativePath = getRelativePath(destinationFile, destinationFolder);
                 logWriter.println("Checking relativePath: " + relativePath);
 
                 if (configList.contains(relativePath)) {
                     logWriter.println("Found match in configList: " + relativePath);
 
-                    File sourceFile = new File(destination, relativePath);
-                    if (sourceFile.exists()) {
+                    if (destinationFile.exists()) {
                         if (destinationFile.isDirectory()) {
                             deleteFolder(destinationFile, logWriter);
                         } else {
-                            if (destinationFile.delete()) {
-                                logWriter.println("Deleted: " + destinationFile.getAbsolutePath());
-                            } else {
-                                logWriter.println("Failed to delete: " + destinationFile.getAbsolutePath());
-                            }
+                            //todo: delete code is disabled rn
+//                            if (destinationFile.delete()) {
+//                                logWriter.println("Deleted: " + destinationFile.getAbsolutePath());
+//                            } else {
+//                                logWriter.println("Failed to delete: " + destinationFile.getAbsolutePath());
+//                            }
                         }
                     } else {
-                        logWriter.println("Source file not found: " + sourceFile.getAbsolutePath());
+                        logWriter.println("Source file not found: " + destinationFile.getAbsolutePath());
                     }
                 }
             }
@@ -507,6 +525,7 @@ public class CopyAndModifyFolder {
 
     private static void deleteFolder(File folder, PrintWriter logWriter) {
         File[] files = folder.listFiles();
+        boolean isFile = false;
         if (files != null) {
             for (File file : files) {
                 if (file.isDirectory()) {
@@ -522,12 +541,15 @@ public class CopyAndModifyFolder {
                 }
             }
         }
+        else {
+            isFile = true;
+        }
 
         if (folder.delete()) {
-            println(logWriter, "Deleted folder:", DELETION);
+            println(logWriter, "Deleted " +(isFile?"file:":"folder:"), DELETION);
             printFilePath(logWriter, folder.getAbsolutePath(), DELETION);
         } else {
-            println(logWriter, "Failed to delete folder:", WARNING);
+            println(logWriter, "Failed to delete "+(isFile?"file:":"folder:"), WARNING);
             printFilePath(logWriter, folder.getAbsolutePath(), WARNING);
         }
     }
